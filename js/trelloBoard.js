@@ -27,8 +27,10 @@ let list_of_cards_json=JSON.parse(get_cards_data_from_trello_board());
 let all_cards_list = '<h3>Cards List</h3>';
 all_cards_list ="";
 list_of_cards_json.forEach(function(each_data_of_card) {
-    all_cards_list += `<div class="card_group"> <input type="checkbox" id="card_check_box" value="${each_data_of_card['id']}">
-    <label class="card_name">${each_data_of_card['name']}</label> <button class="destroy" value="${each_data_of_card['id']}" onclick='delete_card()'>Delete</button> </div>`;
+    all_cards_list += `<div class="card_group"> 
+    <button class="edit_name" value="${each_data_of_card['id']}" onclick='new_name_card(this.value)'>Edit</button>
+    <label class="card_name">${each_data_of_card['name']}</label> 
+    <button class="delete" value="${each_data_of_card['id']}" onclick='delete_card(this.value)'>Delete</button> </div>`;
 });
 all_cards_list += '</ul>'
 document.querySelector(".all_cards").innerHTML = all_cards_list;
@@ -43,7 +45,6 @@ text_card.addEventListener("keydown",key_pressed)
 function key_pressed(actionevent){
     if (actionevent.keyCode === 13) {
         let card_name=text_card.value;
-        if(text_card.value.replace(/\s/g, "").length>0)
         append_card_to_list_on_trello(card_name);
         text_card.value=" ";
         list_all_cards();
@@ -59,9 +60,19 @@ function append_card_to_list_on_trello(card_name){
 
 
 // For deleting cards from List on Trello Board
-function delete_card(){
-    let id_of_card=document.querySelector('.destroy').value;
+function delete_card(id_of_card){
     let url=`${APIURL}/cards/${id_of_card}?&key=${trelloKey}&token=${trelloToken}`;
     calling_http('DELETE',url);
     list_all_cards();
+    location.reload();
 }
+
+//For updating the name of card on Trello Board
+function new_name_card(id_of_card){
+    let  new_name_of_card = prompt("Enter new name of card");
+    let url=`${APIURL}/cards/${id_of_card}?name=${new_name_of_card}&key=${trelloKey}&token=${trelloToken}`;
+    calling_http('PUT',url);
+    list_all_cards();
+    location.reload();
+}
+
