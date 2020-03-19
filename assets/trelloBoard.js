@@ -27,19 +27,19 @@ let listOfCardsJson=JSON.parse(getCardsDataFromTrelloBoard());
 let allCardsList = '<h3>Cards List</h3>';
 allCardsList ="";
 listOfCardsJson.forEach(function(eachDataOfCard) {
-    allCardsList += `<div class="card_group"> 
-    <button class="edit_name" value="${eachDataOfCard['id']}" onclick='newNameCard(this.value)'>Edit</button>
-    <label class="card_name">${eachDataOfCard['name']}</label> 
+    allCardsList += `<div class="card-group"> 
+    <button class="edit-name" value="${eachDataOfCard['id']}" onclick='newNameCard(this.value)'>Edit</button>
+    <label class="card-name">${eachDataOfCard['name']}</label> 
     <button class="delete" value="${eachDataOfCard['id']}" onclick='deleteCard(this.value)'>Delete</button> </div>`;
 });
 allCardsList += '</ul>'
-document.querySelector(".all_cards").innerHTML = allCardsList;
+document.querySelector(".all-cards").innerHTML = allCardsList;
 }
 
 
 
 // For adding cards to the Test List in Trello Board
-let textCard=document.querySelector('#card_name');
+let textCard=document.querySelector('#card-name');
 textCard.addEventListener("keydown",keyPressed)
 
 function keyPressed(actionevent){

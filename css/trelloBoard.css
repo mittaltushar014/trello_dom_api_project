@@ -1,5 +1,5 @@
 
-.heading_toDo h2{
+.heading-to-do h3{
     text-align: left;
     color: blue;
     background-color: lightgrey;
@@ -10,7 +10,7 @@
     font-weight: 5rem;
 }
 
-.card_new {
+.card-new {
     outline: none;
     text-align: left;
     font-size: 2rem;
@@ -24,13 +24,13 @@
     color: whitesmoke;
 }
 
-.all_cards{
+.all-cards{
     width: 100%;
     margin-left: 5%;
 }
 
 
-.card_group{
+.card-group{
     background-color: lightslategray;
     width: 44%;
     
@@ -45,7 +45,7 @@ html{
     padding: 0;
 }
 
-.card_name{
+.card-name{
     color: whitesmoke;
     font-size: 2rem;
     font-family: sans-serif;
