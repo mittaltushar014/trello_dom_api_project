@@ -1,0 +1,59 @@
+
+.heading-to-do h3{
+    text-align: left;
+    color: blue;
+    background-color: lightgrey;
+    position: absolute;
+    width: 100%;
+    margin-left: 4%;
+    font-size: 60px;
+    font-weight: 5rem;
+}
+
+.card-new {
+    outline: none;
+    text-align: left;
+    font-size: 2rem;
+    background-color: lightsalmon ;
+    padding: 8px 8px 8px 55px;
+    border: none;
+    margin-top: 10%;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.all-cards{
+    width: 100%;
+    margin-left: 5%;
+}
+
+
+.card-group{
+    background-color: lightslategray;
+    width: 44%;
+    
+}
+
+button{
+   float: right;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+.card-name{
+    color: whitesmoke;
+    font-size: 2rem;
+    font-family: sans-serif;
+    padding-left: 0.5vw;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightsteelblue;
+}
